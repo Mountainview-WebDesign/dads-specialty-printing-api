@@ -1,16 +1,19 @@
 var placementPrices = [];
-$.ajax('http://www.mountainview-webdesign.com/dads-specialty-printing-api/data.json')
-  .done(function(data, success) {
-    if (success === 'success') {
-      placementPrices = data.prices;
-      shirtOptions = data.shirts;
-      showForm();
-    }
-  });
 
-function showForm() {
+function quoteForm(defaultShirt) {
+  $.ajax('http://www.mountainview-webdesign.com/dads-specialty-printing-api/data.json')
+    .done(function(data, success) {
+      if (success === 'success') {
+        placementPrices = data.prices;
+        shirtOptions = data.shirts;
+        showForm(defaultShirt);
+      }
+    });
+}
+
+function showForm(defaultShirt) {
   var shirtOptionsHtml = shirtOptions.map(function(currentValue) {
-    return '<option value=\'' + currentValue.price + '\'>' + currentValue.name + '</option>';
+    return '<option value=\'' + currentValue.price + '\' ' + (defaultShirt === currentValue.name ? 'selected': '') + '>' + currentValue.name + '</option>';
   }).join('');
 
   var formHtml = "<div style='background-color: #ECECEC; padding: 10px;'><h3>T-shirt Type:</h3><select id='shirtCost' style='width: 100%;'>"
