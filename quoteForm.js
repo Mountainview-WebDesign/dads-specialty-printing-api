@@ -34,7 +34,7 @@ function getQuote() {
   } else {
     tshirtCalculator.placements([colors1, colors2]);
   }
-  var priceTable = tshirtCalculator.getPlacementCost();
+  var priceTable = tshirtCalculator.getPrice();
   var priceHtml = priceTable.map(function(currentValue) {
     return '<td>' + currentValue.quantity + '</td><td>$' + currentValue.price + '/shirt</td>';
   });
