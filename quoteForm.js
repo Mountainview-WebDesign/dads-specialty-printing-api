@@ -36,7 +36,8 @@ function getQuote() {
   }
   var priceTable = tshirtCalculator.getPrice();
   var priceHtml = priceTable.map(function(currentValue) {
-    return '<td>' + currentValue.quantity + '</td><td>$' + currentValue.price + '/shirt</td>';
+    var price = currentValue.price ? '$' + currentValue.price + '/shirt' : 'N/A';
+    return '<td>' + currentValue.quantity + '</td><td>' + price + '</td>';
   });
   priceHtml = '<table><tr>' + priceHtml.join('</tr><tr>') + '<tr><td>1000</td><td><a href="http://www.dadsspecialtyprinting.com/get-a-quote" style="text-decoration: underline;">Contact us</a></td></tr></table>';
   document.getElementById('quote').innerHTML = priceHtml;
