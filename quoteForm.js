@@ -16,9 +16,10 @@ function showForm(defaultShirt) {
     return '<option value=\'' + currentValue.price + '\' ' + (defaultShirt === currentValue.name ? 'selected': '') + '>' + currentValue.name + '</option>';
   }).join('');
 
-  var formHtml = "<div style='background-color: #ECECEC; padding: 10px;'><p>T-shirt Type:</p><select id='shirtCost' style='width: 100%;'>"
+  var formHtml = "<style>.QuoteForm__Header {margin-bottom: 5px; margin-top: 10px; font-size: 16px; font-weight: 600;}</style>";
+  formHtml += "<div style='background-color: #ECECEC; padding: 10px;'><p class='QuoteForm__Header'>T-shirt Type:</p><select id='shirtCost' style='width: 100%;'>"
   formHtml += shirtOptionsHtml;
-  formHtml += "</select><br/><p>Colors in placement 1:</p><select id='colors1'><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option></select><br/><p>Colors in placement 2</p><select id='colors2'><option id='2-0' value='0'>0</option><option id='2-1' value='1'>1</option><option id='2-2' value='2'>2</option><option id='2-3' value='3'>3</option><option id='2-4' value='4'>4</option><option id='2-5' value='5'>5</option><option id='2-6' value='6'>6</option><option id='2-7' value='7'>7</option><option id='2-8' value='8'>8</option></select><br/><br/><input type='submit'onclick='getQuote();' /><br/><div id='quote'></div></div>";
+  formHtml += "</select><br/><p class='QuoteForm__Header'>Colors in placement 1:</p><select id='colors1'><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option></select><br/><p class='QuoteForm__Header'>Colors in placement 2</p><select id='colors2'><option id='2-0' value='0'>0</option><option id='2-1' value='1'>1</option><option id='2-2' value='2'>2</option><option id='2-3' value='3'>3</option><option id='2-4' value='4'>4</option><option id='2-5' value='5'>5</option><option id='2-6' value='6'>6</option><option id='2-7' value='7'>7</option><option id='2-8' value='8'>8</option></select><br/><br/><input type='submit'onclick='getQuote();' /><br/><div id='quote'></div></div>";
 
   $('.quoteCalculator').html(formHtml);
 }
