@@ -17,7 +17,5 @@ List of shirt names and prices
 <script src="http://www.adamwadeharris.com/tshirt-calculator/tshirt-calculator.js"></script>
 <div class="quoteCalculator"></div>
 <script src="http://www.mountainview-webdesign.com/dads-specialty-printing-api/quoteForm.js"></script>
-<script>
-quoteForm('District Made DM130 Tri-blend'); // This shows the form and takes an optional parameter for the default shirt to select
-</script>
+<script>quoteForm('District Made DM130 Tri-blend');</script>
 ```
