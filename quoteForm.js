@@ -16,9 +16,9 @@ function showForm(defaultShirt) {
     return '<option value=\'' + currentValue.price + '\' ' + (defaultShirt === currentValue.name ? 'selected': '') + '>' + currentValue.name + '</option>';
   }).join('');
 
-  var formHtml = "<div style='background-color: #ECECEC; padding: 10px;'><h3>T-shirt Type:</h3><select id='shirtCost' style='width: 100%;'>"
+  var formHtml = "<div style='background-color: #ECECEC; padding: 10px;'><p>T-shirt Type:</p><select id='shirtCost' style='width: 100%;'>"
   formHtml += shirtOptionsHtml;
-  formHtml += "</select><br/><h3>Number of colors on placement 1:</h3><select id='colors1'><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option></select><br/><h3>Number of colors on placement 2</h3><select id='colors2'><option id='2-0' value='0'>0</option><option id='2-1' value='1'>1</option><option id='2-2' value='2'>2</option><option id='2-3' value='3'>3</option><option id='2-4' value='4'>4</option><option id='2-5' value='5'>5</option><option id='2-6' value='6'>6</option><option id='2-7' value='7'>7</option><option id='2-8' value='8'>8</option></select><br/><br/><input type='submit'onclick='getQuote();' /><br/><h2 id='quote'></h2></div>";
+  formHtml += "</select><br/><p>Colors in placement 1:</p><select id='colors1'><option value='1'>1</option><option value='2'>2</option><option value='3'>3</option><option value='4'>4</option><option value='5'>5</option><option value='6'>6</option><option value='7'>7</option><option value='8'>8</option></select><br/><p>Colors in placement 2</p><select id='colors2'><option id='2-0' value='0'>0</option><option id='2-1' value='1'>1</option><option id='2-2' value='2'>2</option><option id='2-3' value='3'>3</option><option id='2-4' value='4'>4</option><option id='2-5' value='5'>5</option><option id='2-6' value='6'>6</option><option id='2-7' value='7'>7</option><option id='2-8' value='8'>8</option></select><br/><br/><input type='submit'onclick='getQuote();' /><br/><div id='quote'></div></div>";
 
   $('.quoteCalculator').html(formHtml);
 }
@@ -38,6 +38,6 @@ function getQuote() {
   var priceHtml = priceTable.map(function(currentValue) {
     return '<td>' + currentValue.quantity + '</td><td>$' + currentValue.price + '/shirt</td>';
   });
-  priceHtml = '<table><tr>' + priceHtml.join('</tr><tr>') + '<tr><td>1000</td><td><a href="http://www.dadsspecialtyprinting.com/get-a-quote">Contact us for a quote on 1,000 or more shirts.</a></td></tr></table>';
+  priceHtml = '<table><tr>' + priceHtml.join('</tr><tr>') + '<tr><td>1000</td><td><a href="http://www.dadsspecialtyprinting.com/get-a-quote" style="text-decoration: underline;">Contact us</a></td></tr></table>';
   document.getElementById('quote').innerHTML = priceHtml;
 }
